@@ -46,7 +46,7 @@ func HandleGetMove(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	game := tictactoe.NewGame(moveQueryParams.Size, moveQueryParams.Moves)
+	game := tictactoe.NewGame(moveQueryParams.Gid, moveQueryParams.Size, moveQueryParams.Moves)
 	row, col := game.GetRandomMove(moveQueryParams.Playing)
 
 	w.WriteHeader(http.StatusOK)

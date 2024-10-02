@@ -29,13 +29,14 @@ func ToPlayerSymbol(s string) (Symbol, error) {
 type Board [][]Symbol
 
 type Game struct {
+	Gid   string
+	Size  int
 	Board Board
-	size  int
 }
 
-func NewGame(size int, moves string) *Game {
+func NewGame(gid string, size int, moves string) *Game {
 	board := movesToBoard(size, moves)
-	return &Game{board, size}
+	return &Game{Gid: gid, Board: board, Size: size}
 }
 
 func movesToBoard(size int, moves string) Board {
@@ -83,10 +84,10 @@ func newEmptyBoard(size int) Board {
 
 func (g *Game) GetRandomMove(player Symbol) (int, int) {
 	for {
-		row := utils.RandomInt(0, g.size)
-		col := utils.RandomInt(0, g.size)
+		row := utils.RandomInt(0, g.Size)
+		col := utils.RandomInt(0, g.Size)
 
-		if row >= 0 && row < g.size && col >= 0 && col < g.size && g.Board[row][col] == EMPTY {
+		if row >= 0 && row < g.Size && col >= 0 && col < g.Size && g.Board[row][col] == EMPTY {
 			g.Board[row][col] = player
 			return row, col
 		}
