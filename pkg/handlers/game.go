@@ -16,7 +16,7 @@ type GetMoveQueryParams struct {
 	Moves   string
 }
 
-func NewGetMoveQueryParams(query url.Values) (*GetMoveQueryParams, error) {
+func newGetMoveQueryParams(query url.Values) (*GetMoveQueryParams, error) {
 	size, err := strconv.Atoi(query.Get("size"))
 	if err != nil {
 		size = 3
@@ -38,7 +38,7 @@ func NewGetMoveQueryParams(query url.Values) (*GetMoveQueryParams, error) {
 func HandleGetMove(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
 
-	moveQueryParams, err := NewGetMoveQueryParams(query)
+	moveQueryParams, err := newGetMoveQueryParams(query)
 
 	log.Printf("MoveQueryParams: %+v\n", moveQueryParams)
 
