@@ -45,7 +45,7 @@ func HandleGetMove(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err.Error())
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte("Error:Sorry mate, can't do it bro."))
+		w.Write([]byte("Error:Sorry. Can't do it bro."))
 		return
 	}
 
