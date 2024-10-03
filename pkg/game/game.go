@@ -87,7 +87,7 @@ func (g *Game) GetRandomMove(player Symbol) (int, int) {
 		row := utils.RandomInt(0, g.Size)
 		col := utils.RandomInt(0, g.Size)
 
-		if row >= 0 && row < g.Size && col >= 0 && col < g.Size && g.Board[row][col] == EMPTY {
+		if g.Board[row][col] == EMPTY {
 			g.Board[row][col] = player
 			return row, col
 		}
