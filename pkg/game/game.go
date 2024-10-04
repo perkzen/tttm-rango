@@ -42,10 +42,10 @@ func NewGame(gid string, size int, moves string) *Game {
 func movesToBoard(size int, moves string) Board {
 	board := newEmptyBoard(size)
 
-	moveList := strings.Split(moves, "-")
+	moveList := strings.Split(moves, "_")
 
 	for _, move := range moveList {
-		parts := strings.Split(move, "_")
+		parts := strings.Split(move, "-")
 
 		if len(parts) != 3 {
 			continue
